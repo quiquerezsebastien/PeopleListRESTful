@@ -5,23 +5,34 @@
  */
 package ch.hearc.ig.odi.peoplelist.bean;
 
+import ch.hearc.ig.odi.peoplelist.service.Services;
+import java.io.Serializable;
+import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 
 /**
  *
  * @author sebastie.quiquere
  */
 @Named(value = "peopleListBean")
-@Dependent
 @RequestScoped
-public class PeopleListBean {
 
+
+
+public class PeopleListBean implements Serializable{
+    
+    @Inject Services service;
     /**
      * Creates a new instance of PeopleListBean
      */
     public PeopleListBean() {
+    }
+    
+    public List getPeopleList(){
+        return service.getPeopleList();
     }
     
 }
