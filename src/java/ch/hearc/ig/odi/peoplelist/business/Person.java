@@ -16,8 +16,8 @@ public class Person {
     private Long id;
     private String gender;
     private String firstName;
-    private String lasteName;
-    private Boolean married;
+    private String lastName;
+    private boolean married;
     private Date birthDate;
 
     public Person() {
@@ -35,11 +35,11 @@ public class Person {
         return firstName;
     }
 
-    public String getLasteName() {
-        return lasteName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public Boolean getMarried() {
+    public boolean isMarried() {
         return married;
     }
 
@@ -59,8 +59,8 @@ public class Person {
         this.firstName = firstName;
     }
 
-    public void setLasteName(String lasteName) {
-        this.lasteName = lasteName;
+    public void setLastName(String lasteName) {
+        this.lastName = lasteName;
     }
 
     public void setMarried(Boolean married) {
