@@ -1,12 +1,50 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-         <h:dataTable value="#{PeopleListBean.peopleList}"/>
+         <h:dataTable value="#{peopleListBean.peopleList}" var="o">
+            <h:column>
+    		<!-- column header -->
+    		<f:facet name="header">ID</f:facet>
+    		<!-- row record -->
+    		#{o.id}
+            </h:column>
+            <h:column>
+    		<!-- column header -->
+    		<f:facet name="header">Prénom</f:facet>
+    		<!-- row record -->
+    		#{o.firstName}
+            </h:column>
+             <h:column>
+    		<!-- column header -->
+    		<f:facet name="header">Nom</f:facet>
+    		<!-- row record -->
+    		#{o.lastName}
+            </h:column>
+             <h:column>
+    		<!-- column header -->
+    		<f:facet name="header">Genre</f:facet>
+    		<!-- row record -->
+    		#{o.gender}
+            </h:column>
+             <h:column>
+    		<!-- column header -->
+    		<f:facet name="header">Date d'anniversaire</f:facet>
+    		<!-- row record -->
+    		#{o.birthDate}
+            </h:column>
+             <h:column>
+    		<!-- column header -->
+    		<f:facet name="header">Marié ?</f:facet>
+    		<!-- row record -->
+    		#{o.married}
+            </h:column>
+         </h:dataTable>
     </h:body>
 </html>
 
