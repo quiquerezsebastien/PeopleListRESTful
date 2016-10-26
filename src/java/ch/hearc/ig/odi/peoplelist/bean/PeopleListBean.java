@@ -21,7 +21,7 @@ import javax.inject.Inject;
  * @author sebastie.quiquere
  */
 @Named(value = "peopleListBean")
-@SessionScoped
+@RequestScoped
 
 
 

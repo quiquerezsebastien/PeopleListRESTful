@@ -3,20 +3,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <f:loadBundle basename="ch.hearc.ig.odi.peoplelist.service.message" var="msg"/>
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <h1>Inserer une nouvelle personne</h1>
+        <h1>#{msg.formHeader}</h1>
         <h:form>
-            Genre: <h:inputText value="#{peopleListBean.gender}"/><br/><br/>
-            prenom: <h:inputText value="#{peopleListBean.firstName}"/><br/><br/>
-            Nom <h:inputText value="#{peopleListBean.lastName}"/><br/><br/>
-            Marrié: <h:inputText value="#{peopleListBean.married}"/><br/><br/>
-            Date de naissance: <h:inputText value="#{peopleListBean.birthDate}"><f:convertDateTime pattern="dd.mm.yyyy"/></h:inputText><br/><br/>
+            #{msg.gendre}:      <h:inputText value="#{peopleListBean.gender}"/><br/><br/>
+            #{msg.firstname}:   <h:inputText value="#{peopleListBean.firstName}"/><br/><br/>
+            #{msg.lastname}:    <h:inputText value="#{peopleListBean.lastName}"/><br/><br/>
+            #{msg.married}:     <h:inputText value="#{peopleListBean.married}"/><br/><br/>
+            #{msg.birthday}:    <h:inputText value="#{peopleListBean.birthDate}"><f:convertDateTime pattern="dd.mm.yyyy"/></h:inputText><br/><br/>
             
             <h:commandButton value="Ajouter" action="#{peopleListBean.addPerson()}"/>
+            <h:button value="annuler" outcome="index"/>
         </h:form>
+        
     </h:body>
 </html>
 

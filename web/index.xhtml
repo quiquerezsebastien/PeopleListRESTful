@@ -3,21 +3,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <f:loadBundle basename="ch.hearc.ig.odi.peoplelist.service.message" var="msg"/>
     <h:head>
-        <title>Facelet Title</title>
+        <title>People List</title>
     </h:head>
     <h:body>
         
+        <h1>#{msg.headIndex}</h1>
          <h:dataTable value="#{peopleListBean.peopleList}" var="o">
             <h:column>
-    		<!-- column header -->
-    		<f:facet name="header">ID</f:facet>
-    		<!-- row record -->
+    		<f:facet name="header">#{msg.id}</f:facet>
     		#{o.id}
             </h:column>
             <h:column>
     		<!-- column header -->
-    		<f:facet name="header">Prénom</f:facet>
+    		<f:facet name="header">#{msg.firstname}</f:facet>
     		<!-- row record -->
     		#{o.firstName}
             </h:column>
@@ -29,19 +29,19 @@
             </h:column>
              <h:column>
     		<!-- column header -->
-    		<f:facet name="header">Genre</f:facet>
+    		<f:facet name="header">#{msg.gendre}</f:facet>
     		<!-- row record -->
     		#{o.gender}
             </h:column>
              <h:column>
     		<!-- column header -->
-    		<f:facet name="header">Date d'anniversaire</f:facet>
+    		<f:facet name="header">#{msg.birthday}</f:facet>
     		<!-- row record -->
     		#{o.birthDate}
             </h:column>
              <h:column>
     		<!-- column header -->
-    		<f:facet name="header">Marié ?</f:facet>
+    		<f:facet name="header">#{msg.married}</f:facet>
     		<!-- row record -->
     		#{o.married}
             </h:column>
