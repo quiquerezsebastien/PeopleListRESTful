@@ -20,6 +20,15 @@ public class Person {
     private boolean married;
     private Date birthDate;
 
+    public Person(Long id, String gender, String firstName, String lastName, boolean married, Date birthDate) {
+        this.id = id;
+        this.gender = gender;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.married = married;
+        this.birthDate = birthDate;
+    }
+
     public Person() {
     }
 
