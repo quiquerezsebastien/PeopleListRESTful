@@ -37,6 +37,7 @@ public class PeopleListBean implements Serializable{
     private String lastName;
     private boolean married;
     private Date birthDate;
+    private Person personToDelete;
     
     public PeopleListBean() {
     }
@@ -93,12 +94,26 @@ public class PeopleListBean implements Serializable{
     public List getPeopleList(){
         return service.getPeopleList();
     }
+
+    public Person getPersonToDelete() {
+        return personToDelete;
+    }
+
+    public void setPersonToDelete(Person personToDelete) {
+        this.personToDelete = personToDelete;
+    }
     
     public String addPerson(){
         
         service.savePerson(gender, firstName, lastName, married, birthDate);
         
         return "index.xhtml";
+    }
+    
+    public String deletePerson(){
+        
+        service.
+        return "index.html";
     }
     
 }
