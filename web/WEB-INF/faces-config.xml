@@ -8,8 +8,8 @@
             <base-name>ch.hearc.ig.odi.peoplelist.presentation.bundle.message</base-name>
             <var>msg</var>
         </resource-bundle>
+        
         <locale-config>
-            
             <default-locale>fr</default-locale>
         </locale-config>
     </application>
