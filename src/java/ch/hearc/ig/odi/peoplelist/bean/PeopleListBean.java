@@ -106,14 +106,12 @@ public class PeopleListBean implements Serializable{
     public String addPerson(){
         
         service.savePerson(gender, firstName, lastName, married, birthDate);
-        
         return "index.xhtml";
     }
     
     public String deletePerson(){
         
         service.deletePerson(personToDelete);
-        
         return "index.xhtml";
     }
     
