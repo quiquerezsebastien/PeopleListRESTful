@@ -9,11 +9,15 @@
     <h:body>
         <h1>#{msg.deleteHeader}</h1>
         <p>#{msg.deleteDescr}</p>
-        
-        <h:selectOneMenu id="lovPerson" value="#{peopleListBean.personToDelete}">
-            <f:converter binding="#{peopleLOVConverter}"/>
-            <f:selectItems value="#{peopleListBean.service.peopleList}" var="person" itemLabel="#{person.name}"/>
-        </h:selectOneMenu>
+        <h:form>
+            <h:selectOneMenu id="lovPerson" value="#{peopleListBean.personToDelete}">
+                <f:converter binding="#{peopleLOVConverter}"/>
+                <f:selectItems value="#{peopleListBean.peopleList}" var="person" itemLabel="#{person.firstName}"/>
+            </h:selectOneMenu>
+
+            <h:commandButton value="Supprimer" action="#{peopleListBean.deletePerson()}"/>
+            
+        </h:form>
     </h:body>
 </html>
 
