@@ -133,6 +133,6 @@ public class Services implements Serializable{
     }
     
     public void deletePerson(Person person){
-        people.remove(person);
+        people.remove(person.getId());
     }
 }

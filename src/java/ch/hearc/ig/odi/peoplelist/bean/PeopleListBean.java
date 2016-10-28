@@ -113,7 +113,7 @@ public class PeopleListBean implements Serializable{
     public String deletePerson(){
         
         service.deletePerson(personToDelete);
-        return "index.html";
+        return "index.xhtml";
     }
     
 }
