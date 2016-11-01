@@ -3,6 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <h:outputStylesheet name="css/default.css"/>
+    <h:outputStylesheet name="css/cssLayout.css"/>
     <h:head>
         <title>Facelet Title</title>
     </h:head>
@@ -14,11 +17,11 @@
             #{msg.lastname}:    <h:inputText value="#{peopleListBean.lastName}" required="true"/><br/><br/>
             #{msg.married}:     <h:inputText value="#{peopleListBean.married}" required="true"/><br/><br/>
             #{msg.birthday}:    <h:inputText value="#{peopleListBean.birthDate}" required="true"><f:convertDateTime pattern="dd.mm.yyyy"/></h:inputText><br/><br/>
-            
+
             <h:commandButton value="Ajouter" action="#{peopleListBean.addPerson()}"/>
             <h:button value="annuler" outcome="index"/>
         </h:form>
-        
+
     </h:body>
 </html>
 
