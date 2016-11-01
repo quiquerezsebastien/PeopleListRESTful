@@ -31,7 +31,11 @@
                     </h:column>
                     <h:column>
                         <f:facet name="header">#{msg.birthday}</f:facet>
-                            #{o.birthDate}
+
+                        <h:outputText value="#{o.birthDate}">
+                            <f:convertDateTime pattern="dd.MM.yyyy" />
+                        </h:outputText>
+                        
                     </h:column>
                     <h:column>
                         <f:facet name="header">#{msg.married}</f:facet>
