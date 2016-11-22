@@ -8,7 +8,6 @@ package ch.hearc.ig.odi.peoplelist.converter;
 import ch.hearc.ig.odi.peoplelist.business.Person;
 import ch.hearc.ig.odi.peoplelist.service.Services;
 import javax.inject.Named;
-import javax.enterprise.context.Dependent;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
