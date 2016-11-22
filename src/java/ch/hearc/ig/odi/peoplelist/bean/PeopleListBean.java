@@ -39,6 +39,9 @@ public class PeopleListBean implements Serializable{
     private Date birthDate;
     private Person personToDelete;
     
+    //restful
+    private List peopleList;
+    
     public PeopleListBean() {
     }
 
@@ -113,6 +116,11 @@ public class PeopleListBean implements Serializable{
         
         service.deletePerson(personToDelete);
         return "index.xhtml";
+    }
+    
+    //initialisation de la liste des personnes
+    public void iniPeopleList(){
+        this.peopleList = service.getPeopleList();
     }
     
 }
