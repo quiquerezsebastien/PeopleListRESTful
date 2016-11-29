@@ -16,6 +16,11 @@
                     <f:viewAction action="#{peopleListBean.iniPeopleList}"/>
                 </f:metadata>
                 
+                <f:metadata>
+                    <f:viewParam name="id" value="#{customerController.currentEntityId}"/>
+                    <f:viewAction action="#{customerController.iniPeopleList}"/>
+                </f:metadata>
+                
                 <h:dataTable value="#{peopleListBean.peopleList}" var="o">
                     <h:column>
                         <f:facet name="header">#{msg.id}</f:facet>
