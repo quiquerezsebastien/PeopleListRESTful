@@ -13,18 +13,15 @@
             <ui:define name="top">#{msg.headIndex}</ui:define>
             <ui:define name="content">
                 <f:metadata>
-                    <f:viewAction action="#{peopleListBean.iniPeopleList}"/>
-                </f:metadata>
-                
-                <f:metadata>
-                    <f:viewParam name="id" value="#{customerController.currentEntityId}"/>
-                    <f:viewAction action="#{customerController.iniPeopleList}"/>
+                    <f:viewAction action="#{peopleListBean.iniPeopleList()}"/>
                 </f:metadata>
                 
                 <h:dataTable value="#{peopleListBean.peopleList}" var="o">
                     <h:column>
                         <f:facet name="header">#{msg.id}</f:facet>
-                            #{o.id}
+                        <h:link outcome="formPerson.xhtml" value="#{o.id}">
+                            <f:param name="id" value="#{o.id}"/>
+                        </h:link>
                     </h:column>
                     <h:column>
                         <f:facet name="header">#{msg.firstname}</f:facet>

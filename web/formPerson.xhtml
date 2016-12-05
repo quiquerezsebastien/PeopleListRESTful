@@ -7,16 +7,21 @@
     <h:head>
         <title>Facelet Title</title>
     </h:head>
+    
+    <f:metadata>
+        <f:viewParam name="id" value="#{peopleListBean.currentPersonID}"/>
+        <f:viewAction action="#{peopleListBean.initPerson}"></f:viewAction>
+    </f:metadata>
     <h:body>
         <ui:composition template="template.xhtml">
             <ui:define name="top">#{msg.formHeader}</ui:define>
             <ui:define name="content">
                 <h:form>
-                    #{msg.gendre}:      <h:inputText value="#{peopleListBean.gender}" required="true"/><br/><br/>
-                    #{msg.firstname}:   <h:inputText value="#{peopleListBean.firstName}" required="true"/><br/><br/>
-                    #{msg.lastname}:    <h:inputText value="#{peopleListBean.lastName}" required="true"/><br/><br/>
-                    #{msg.married}:     <h:inputText value="#{peopleListBean.married}" required="true"/><br/><br/>
-                    #{msg.birthday}:    <h:inputText value="#{peopleListBean.birthDate}" required="true"><f:convertDateTime pattern="dd.mm.yyyy"/></h:inputText><br/><br/>
+                    #{msg.gendre}:      <h:inputText value="#{peopleListBean.currentPerson.gender}" required="true"/><br/><br/>
+                    #{msg.firstname}:   <h:inputText value="#{peopleListBean.currentPerson.firstName}" required="true"/><br/><br/>
+                    #{msg.lastname}:    <h:inputText value="#{peopleListBean.currentPerson.lastName}" required="true"/><br/><br/>
+                    #{msg.married}:     <h:inputText value="#{peopleListBean.currentPerson.married}" required="true"/><br/><br/>
+                    #{msg.birthday}:    <h:inputText value="#{peopleListBean.currentPerson.birthDate}" required="true"><f:convertDateTime pattern="dd.mm.yyyy"/></h:inputText><br/><br/>
 
                         <h:commandButton value="Ajouter" action="#{peopleListBean.addPerson()}"/>
                         <h:button value="annuler" outcome="index"/>

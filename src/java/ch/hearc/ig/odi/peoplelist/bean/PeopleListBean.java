@@ -14,6 +14,7 @@ import javax.inject.Named;
 import javax.enterprise.context.Dependent;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 /**
@@ -23,32 +24,33 @@ import javax.inject.Inject;
 @Named(value = "peopleListBean")
 @RequestScoped
 
+public class PeopleListBean implements Serializable {
 
-
-public class PeopleListBean implements Serializable{
-    
-    @Inject Services service;
+    @Inject
+    Services service;
     /**
      * Creates a new instance of PeopleListBean
      */
-    
+
     private String gender;
     private String firstName;
     private String lastName;
     private boolean married;
     private Date birthDate;
     private Person personToDelete;
-    
+    private int currentPersonID;
+    private Person currentPerson;
+
     //restful
     private List peopleList;
-    
+
     public PeopleListBean() {
     }
 
     public Services getService() {
         return service;
     }
-    
+
     public String getGender() {
         return gender;
     }
@@ -92,9 +94,8 @@ public class PeopleListBean implements Serializable{
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
-    
-    
-    public List getPeopleList(){
+
+    public List getPeopleList() {
         return service.getPeopleList();
     }
 
@@ -105,22 +106,51 @@ public class PeopleListBean implements Serializable{
     public void setPersonToDelete(Person personToDelete) {
         this.personToDelete = personToDelete;
     }
-    
-    public String addPerson(){
-        
+
+    public String addPerson() {
+
         service.savePerson(gender, firstName, lastName, married, birthDate);
         return "index.xhtml";
     }
-    
-    public String deletePerson(){
-        
+
+    public String deletePerson() {
+
         service.deletePerson(personToDelete);
         return "index.xhtml";
     }
-    
+
     //initialisation de la liste des personnes
-    public void iniPeopleList(){
+    public void iniPeopleList() {
         this.peopleList = service.getPeopleList();
     }
+
+    public void initPerson() {
+        String idParam = FacesContext
+                .getCurrentInstance()
+                .getExternalContext()
+                .getRequestParameterMap().get("id");
+        if (!(idParam == null || idParam.isEmpty())) {
+            currentPersonID = Integer.parseInt(idParam);
+            currentPerson = service.getPerson(new Long(currentPersonID));
+        }
+    }
+
+    public int getCurrentPersonID() {
+        return currentPersonID;
+    }
+
+    public void setCurrentPersonID(int currentPersonID) {
+        this.currentPersonID = currentPersonID;
+    }
+
+    public Person getCurrentPerson() {
+        return currentPerson;
+    }
+
+    public void setCurrentPerson(Person currentPerson) {
+        this.currentPerson = currentPerson;
+    }
     
+    
+
 }
